@@ -52,6 +52,11 @@ public:
     //Is this the opening roll?
     bool opener = true;
 
+    //Rules
+    bool crawfordRule = true;
+    bool crawfordGame = true; //Is the Crawford rule in effect in this position?
+    bool jacobyRule = true;
+
     Pos() {
         
     }
@@ -65,6 +70,15 @@ public:
         //Match score info
         cout << "O is " << plrAway << " away\n";
         cout << "X is " << oppAway << " away\n\n";
+
+        //Rule info
+        if(plrAway > 1 || oppAway > 1){
+            if(crawfordGame){cout << "This is a Crawford game (no cube).";}
+            else{cout << "The Crawford rule applies to this match.";}
+        } else if (plrAway == 0 && oppAway == 0) {
+            if(jacobyRule){cout << "This is a cash game with the Jacoby rule (no undoubled gammons)";}
+            else{cout << "This is a cash game.";}
+        }
 
         int height = 0;
 
