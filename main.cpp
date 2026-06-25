@@ -7,6 +7,9 @@ const int ROLL    = 1;  // position before dice are rolled
 const int TAKE    = 2;  // take or drop?
 const int CHECKER = 3;  // which checker move?
 
+// Useful board
+const int OPENER_BOARD[24] = {-2,0,0,0,0,5,0,3,0,0,0,-5,5,0,0,0,-3,0,-5,0,0,0,0,2};
+
 /* This class represents backgammon game states.
  *
  * The kinds of states include:
@@ -33,7 +36,7 @@ public:
 
     //How many checkers are on each board point
     //(Opponent's checkers are negative)
-    int checkers[24];
+    int checkers[24] = {-2,0,0,0,0,5,0,3,0,0,0,-5,5,0,0,0,-3,0,-5,0,0,0,0,2};
 
     /* Is the game state:
      * - a DOUBLE/Roll decision?
@@ -47,7 +50,11 @@ public:
     int dice[2];
 
     //Is this the opening roll?
-    bool opener = false;
+    bool opener = true;
+
+    Pos() {
+        
+    }
 
     void display() {
         cout << "I am a backgammon position.";
@@ -55,7 +62,10 @@ public:
 };
 
 int main() {
-    cout << "Hello, world!";
+    cout << "Hello, world!\n";
+
+    Pos p;
+    p.display();
 
     return 0;
 }
