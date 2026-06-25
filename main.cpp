@@ -57,13 +57,36 @@ public:
     }
 
     void display() {
-        cout << "I am a backgammon position.";
+        //Cube info
+        if(cube > 1){cout << "O holds the " << cube << "cube\n\n";}
+        else if(cube < 1){cout << "X holds the " << -cube << "cube\n\n";}
+        else{cout << "The cube is centered.\n\n";}
+
+        //Match score info
+        cout << "O is " << plrAway << " away\n";
+        cout << "X is " << oppAway << " away\n\n";
+
+        int height = 0;
+
+        for(int i = 0; i < 24; i++){
+            if(abs(checkers[i]) > height){height = abs(checkers[i]);}
+        }
+        
+        for(int y = height; y > 0; y--){
+            for(int x = 0; x < 24; x++){
+                if(abs(checkers[x]) >= y){
+                    if(checkers[x] > 0){cout << " O ";}
+                    else{cout << " X ";}
+                } else {cout << "   ";}
+            }
+            cout << "\n";
+        }
+        cout << "========================================================================\n";
+        cout << " 1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23 24\n";
     }
 };
 
 int main() {
-    cout << "Hello, world!\n";
-
     Pos p;
     p.display();
 
