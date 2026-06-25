@@ -28,8 +28,8 @@ const int OPENER_BOARD[24] = {-2,0,0,0,0,5,0,3,0,0,0,-5,5,0,0,0,-3,0,-5,0,0,0,0,
 class Pos {
 public:
     //How many points is plr/opp away from winning the match?
-    int plrAway = 0;
-    int oppAway = 0;
+    int plrAway = 1;
+    int oppAway = 1;
 
     //1 means centered, 2 means plr owns, -2 means opp owns
     int cube = 1;
